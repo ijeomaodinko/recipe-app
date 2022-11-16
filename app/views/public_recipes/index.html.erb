@@ -1,18 +1,28 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Public Recipes</h1>
-
-<div id="recipes" class="d-flex flex-column align-items-center gap-3">
-  <div class="container-lg align-self-start">
-    <% if user_signed_in? %>
-      <%= link_to 'Create new recipe', new_recipe_path, class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-  <% if @recipes.count > 0 %>
+<h4 class="fw-bold">Public Recipes</h4>
+<div>
+  <ul class="m-0 p-0">
     <% @recipes.each do |recipe| %>
-      <%= render 'partials/public_recipe', recipe: %>
+    <li class="card list-style-none mb-3">
+      <div class="card-header fs-4">
+        <%= link_to recipe.name, recipe_path(recipe.id) %>
+      </div>
+      <div class="card-body">
+        <p class="card-title fw-bold">By: <%= recipe.user.name %></p>
+        <p class="card-text fs-6 mb-4">
+          <span class="fw-bold">Description:</span><br />
+          <%= recipe.description %>
+        </p>
+        <div class="d-flex justify-content-between">
+          <span class="card-text fw-bold"
+            >Total food items: <%= recipe.recipe_foods.length || 0 %> </span
+          ><br />
+          
+          <%= button_to 'Remove',
+           public_recipes_path(recipe), method: :delete, class: "btn btn-danger
+            text-decoration-none" %> 
+        </div>
+      </div>
+    </li>
     <% end %>
-  <% else %>
-    <h3>No public recipes posted</h3>
-  <% end %>
+  </ul>
 </div>
