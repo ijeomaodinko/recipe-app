@@ -2346,3 +2346,517 @@ Migrating to AddDeviseToUsers (20221116144348)
   [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (632.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "recipe_app_development"[0m
+  [1m[35m (376.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "recipe_app_test"[0m
+  [1m[35m (2722.3ms)[0m  [1m[35mCREATE DATABASE "recipe_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (965.1ms)[0m  [1m[35mCREATE DATABASE "recipe_app_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "foods" CASCADE[0m
+  [1m[35m (124.5ms)[0m  [1m[35mCREATE TABLE "foods" ("id" bigserial primary key, "name" character varying, "measurement_unit" integer, "price" decimal, "quantity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "recipe_foods" CASCADE[0m
+  [1m[35m (129.7ms)[0m  [1m[35mCREATE TABLE "recipe_foods" ("id" bigserial primary key, "quantity" character varying, "recipe_id" integer, "food_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "recipes" CASCADE[0m
+  [1m[35m (134.2ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "name" character varying, "preparation_time" time, "cooking_time" time, "description" text, "public" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (110.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6))[0m
+  [1m[35m (77.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (82.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (128.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (9.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221115150913)[0m
+  [1m[35m (8.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221114232310),
+(20221114232701),
+(20221114233110),
+(20221114233408);
+
+[0m
+  [1m[35m (171.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-16 14:51:35.793077"], ["updated_at", "2022-11-16 14:51:35.793077"]]
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "ecd59b15edc8e7eb967e9e0cad49b0ee0e924f64"], ["created_at", "2022-11-16 14:51:35.839091"], ["updated_at", "2022-11-16 14:51:35.839091"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "foods" CASCADE[0m
+  [1m[35m (120.6ms)[0m  [1m[35mCREATE TABLE "foods" ("id" bigserial primary key, "name" character varying, "measurement_unit" integer, "price" decimal, "quantity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "recipe_foods" CASCADE[0m
+  [1m[35m (137.8ms)[0m  [1m[35mCREATE TABLE "recipe_foods" ("id" bigserial primary key, "quantity" character varying, "recipe_id" integer, "food_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "recipes" CASCADE[0m
+  [1m[35m (114.8ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "name" character varying, "preparation_time" time, "cooking_time" time, "description" text, "public" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (163.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6))[0m
+  [1m[35m (84.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (85.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (115.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221115150913)[0m
+  [1m[35m (9.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221114232310),
+(20221114232701),
+(20221114233110),
+(20221114233408);
+
+[0m
+  [1m[35m (153.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-16 14:51:36.955711"], ["updated_at", "2022-11-16 14:51:36.955711"]]
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-11-16 14:51:36.988603"], ["key", "environment"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "ecd59b15edc8e7eb967e9e0cad49b0ee0e924f64"], ["created_at", "2022-11-16 14:51:37.016525"], ["updated_at", "2022-11-16 14:51:37.016525"]]
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20221116144348)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 09:54:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20221116144348_add_devise_to_users.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20221116144348)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20221116144348)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT ''[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20221116144348)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT ''[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20221116144348)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT ''[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20221116144348)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT ''[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5031.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "recipe_app_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (503.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "recipe_app_development"[0m
+  [1m[35m (372.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "recipe_app_test"[0m
+  [1m[35m (1011.3ms)[0m  [1m[35mCREATE DATABASE "recipe_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (957.9ms)[0m  [1m[35mCREATE DATABASE "recipe_app_test" ENCODING = 'unicode'[0m
+  [1m[35m (139.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (128.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221114232310)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (104.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114232310"]]
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFoods (20221114232701)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (145.5ms)[0m  [1m[35mCREATE TABLE "foods" ("id" bigserial primary key, "name" character varying, "measurement_unit" integer, "price" decimal, "quantity" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114232701"]]
+  [1m[36mTRANSACTION (19.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipes (20221114233110)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.1ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "name" character varying, "preparation_time" time, "cooking_time" time, "description" text, "public" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114233110"]]
+  [1m[36mTRANSACTION (22.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipeFoods (20221114233408)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (122.9ms)[0m  [1m[35mCREATE TABLE "recipe_foods" ("id" bigserial primary key, "quantity" character varying, "recipe_id" integer, "food_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114233408"]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUsers (20221116150528)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp(6)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp(6)[0m
+  [1m[35m (54.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (45.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (5.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221116150528"]]
+  [1m[36mTRANSACTION (22.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-16 15:06:24.003395"], ["updated_at", "2022-11-16 15:06:24.003395"]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 10:07:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 76ms (ActiveRecord: 10.6ms | Allocations: 7412)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-16 10:07:30 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 736)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 54.3ms | Allocations: 4560)
+  Rendered layout layouts/application.html.erb (Duration: 61.8ms | Allocations: 7627)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms | Allocations: 16016)
+
+
+  
+ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2022-11-16 10:11:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 25ms (ActiveRecord: 0.0ms | Allocations: 2773)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-16 10:11:10 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.4ms | Allocations: 736)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 19.1ms | Allocations: 3943)
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 590)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 7120)
+Completed 200 OK in 76ms (Views: 48.0ms | ActiveRecord: 6.6ms | Allocations: 16211)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 10:12:18 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 43ms (ActiveRecord: 1.3ms | Allocations: 3728)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 133)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1352)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 216)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 2264)
+Completed 200 OK in 491ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4066)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-16 10:12:21 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.3ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 5.8ms | Allocations: 151)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 2540)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 281)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 3609)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.0ms | Allocations: 4929)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 10:12:37 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "ije"], ["created_at", "2022-11-16 15:12:37.902759"], ["updated_at", "2022-11-16 15:12:37.902759"], ["email", "ijeoma@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (31.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 492ms (ActiveRecord: 35.8ms | Allocations: 8466)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 10:12:37 -0500
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (2.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1156)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 2212)
+Completed 200 OK in 33ms (Views: 11.4ms | ActiveRecord: 2.8ms | Allocations: 6407)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 10:16:53 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 34.6ms | Allocations: 9637)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 37.0ms | Allocations: 9936)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 220)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 10887)
+Completed 200 OK in 84ms (Views: 50.7ms | ActiveRecord: 9.7ms | Allocations: 16597)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 10:19:15 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 9.2ms | Allocations: 2182)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2506)
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 516)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 4104)
+Completed 200 OK in 41ms (Views: 31.2ms | ActiveRecord: 0.7ms | Allocations: 6509)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 10:19:18 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 5.3ms | Allocations: 1568)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1655)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 213)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2548)
+Completed 200 OK in 22ms (Views: 10.9ms | ActiveRecord: 0.7ms | Allocations: 4316)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-11-16 10:19:59 -0500
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 822)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 214)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 1707)
+Completed 200 OK in 38ms (Views: 11.7ms | ActiveRecord: 2.3ms | Allocations: 3372)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 10:20:03 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 3.7ms | Allocations: 1568)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1655)
+  Rendered layouts/_navbar.html.erb (Duration: 4.0ms | Allocations: 213)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 2548)
+Completed 200 OK in 22ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 4120)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2022-11-16 10:24:45 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Fried RIce", "preparation_time"=>"10:25", "cooking_time"=>"10:25", "description"=>"hello", "public"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.5ms | Allocations: 16265)
+
+
+  
+NoMethodError (undefined method `desciption' for #<Recipe id: nil, name: "Fried RIce", preparation_time: "2000-01-01 10:25:00.000000000 +0000", cooking_time: "2000-01-01 10:25:00.000000000 +0000", description: "hello", public: true, created_at: nil, updated_at: nil>
+Did you mean?  description
+               description?
+               description=):
+  
+app/controllers/recipes_controller.rb:28:in `block in create'
+app/controllers/recipes_controller.rb:27:in `create'
+Started POST "/recipes" for 127.0.0.1 at 2022-11-16 10:27:22 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Fried RIce", "preparation_time"=>"10:25", "cooking_time"=>"10:25", "description"=>"hello", "public"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 8.6ms | Allocations: 16090)
+
+
+  
+NoMethodError (undefined method `desciption' for #<Recipe id: nil, name: "Fried RIce", preparation_time: "2000-01-01 10:25:00.000000000 +0000", cooking_time: "2000-01-01 10:25:00.000000000 +0000", description: "hello", public: true, created_at: nil, updated_at: nil>
+Did you mean?  description
+               description?
+               description=):
+  
+app/controllers/recipes_controller.rb:28:in `block in create'
+app/controllers/recipes_controller.rb:27:in `create'
+Started POST "/recipes" for 127.0.0.1 at 2022-11-16 10:29:42 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Fried RIce", "preparation_time"=>"10:25", "cooking_time"=>"10:25", "description"=>"hello", "public"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 11.6ms | Allocations: 16090)
+
+
+  
+NoMethodError (undefined method `desciption' for #<Recipe id: nil, name: "Fried RIce", preparation_time: "2000-01-01 10:25:00.000000000 +0000", cooking_time: "2000-01-01 10:25:00.000000000 +0000", description: "hello", public: true, created_at: nil, updated_at: nil>
+Did you mean?  description
+               description?
+               description=):
+  
+app/controllers/recipes_controller.rb:28:in `block in create'
+app/controllers/recipes_controller.rb:27:in `create'
+Started POST "/recipes" for 127.0.0.1 at 2022-11-16 10:34:53 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Fried RIce", "preparation_time"=>"10:25", "cooking_time"=>"10:25", "description"=>"hello", "public"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 10.6ms | Allocations: 2752)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3078)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 526)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 6050)
+Completed 422 Unprocessable Entity in 76ms (Views: 35.2ms | ActiveRecord: 8.3ms | Allocations: 17106)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2022-11-16 10:39:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Fried RIce", "preparation_time"=>"10:25", "cooking_time"=>"10:25", "description"=>"hello", "public"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 20.0ms | Allocations: 1994)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 21.2ms | Allocations: 2081)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 213)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 2966)
+Completed 422 Unprocessable Entity in 53ms (Views: 26.4ms | ActiveRecord: 0.4ms | Allocations: 5548)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-11-16 10:39:58 -0500
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 866)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 214)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 1751)
+Completed 200 OK in 30ms (Views: 13.1ms | ActiveRecord: 1.1ms | Allocations: 3458)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 10:40:00 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 6.0ms | Allocations: 1572)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1659)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 213)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2552)
+Completed 200 OK in 23ms (Views: 11.4ms | ActiveRecord: 1.7ms | Allocations: 4112)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods
 
-  validates :name, :preparation_time, :desciption, presence: true
+  validates :name, :preparation_time, :description, presence: true
 
   def total_cost
     total = 0
