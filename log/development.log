@@ -1667,3 +1667,592 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 4596)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-16 07:35:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 32ms (ActiveRecord: 0.0ms | Allocations: 3569)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-16 07:35:35 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.4ms | Allocations: 736)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 42.8ms | Allocations: 4679)
+  Rendered layout layouts/application.html.erb (Duration: 101.8ms | Allocations: 8263)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 8.2ms | Allocations: 18490)
+
+
+  
+ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-16 07:37:13 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 542)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 2215)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 4895)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 6275)
+
+
+  
+ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     # <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2022-11-16 07:41:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 35ms (ActiveRecord: 0.0ms | Allocations: 2772)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-16 07:41:45 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 736)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 3943)
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 590)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 7120)
+Completed 200 OK in 89ms (Views: 39.8ms | ActiveRecord: 7.9ms | Allocations: 16185)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-16 07:42:18 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 151)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 38.0ms | Allocations: 2503)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 281)
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 3585)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.0ms | Allocations: 4876)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-16 07:44:19 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 210)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 60.7ms | Allocations: 9638)
+  Rendered layout layouts/application.html.erb (Duration: 61.4ms | Allocations: 9736)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms | Allocations: 11043)
+
+
+  
+ActionView::Template::Error (undefined method `string_field' for #<ActionView::Helpers::FormBuilder:0x00007fa87d36b258 @nested_child_index={}, @options={:allow_method_names_outside_object=>false, :skip_default_ids=>false, :as=>:user, :html=>{:class=>"new_user", :id=>"new_user"}, :local=>true}, @template=#<ActionView::Base:0x0000000000e4c0>, @object=#<User id: nil, name: nil, created_at: nil, updated_at: nil, email: "">, @object_name=:user, @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>false}, @default_html_options={}, @multipart=nil, @index=nil>
+
+    '.freeze;@output_buffer.append=( f.string_field :name, autofocus: true, autocomplete: "name" );@output_buffer.safe_append='
+                                      ^^^^^^^^^^^^^):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :name %><br />
+     8:     <%= f.string_field :name, autofocus: true, autocomplete: "name" %>
+     9:   </div>
+    10:   
+    11:   <div class="field">
+  
+app/views/devise/registrations/new.html.erb:8
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-16 07:45:02 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 210)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 19.8ms | Allocations: 3476)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 3562)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms | Allocations: 4868)
+
+
+  
+ActionView::Template::Error (undefined method `name_field' for #<ActionView::Helpers::FormBuilder:0x00007fa85381f850 @nested_child_index={}, @options={:allow_method_names_outside_object=>false, :skip_default_ids=>false, :as=>:user, :html=>{:class=>"new_user", :id=>"new_user"}, :local=>true}, @template=#<ActionView::Base:0x0000000000e880>, @object=#<User id: nil, name: nil, created_at: nil, updated_at: nil, email: "">, @object_name=:user, @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>false}, @default_html_options={}, @multipart=nil, @index=nil>
+
+    '.freeze;@output_buffer.append=( f.name_field :name, autofocus: true, autocomplete: "name" );@output_buffer.safe_append='
+                                      ^^^^^^^^^^^
+Did you mean?  number_field
+               range_field
+               time_field
+               date_field):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :name %><br />
+     8:     <%= f.name_field :name, autofocus: true, autocomplete: "name" %>
+     9:   </div>
+    10:   
+    11:   <div class="field">
+  
+app/views/devise/registrations/new.html.erb:8
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-16 07:45:37 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 5.1ms | Allocations: 210)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 21.9ms | Allocations: 3371)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 3457)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 4759)
+
+
+  
+ActionView::Template::Error (undefined method `string_field' for #<ActionView::Helpers::FormBuilder:0x00007fa87c019560 @nested_child_index={}, @options={:allow_method_names_outside_object=>false, :skip_default_ids=>false, :as=>:user, :html=>{:class=>"new_user", :id=>"new_user"}, :local=>true}, @template=#<ActionView::Base:0x0000000000ec18>, @object=#<User id: nil, name: nil, created_at: nil, updated_at: nil, email: "">, @object_name=:user, @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>false}, @default_html_options={}, @multipart=nil, @index=nil>
+
+    '.freeze;@output_buffer.append=( f.string_field :name, autofocus: true, autocomplete: "name" );@output_buffer.safe_append='
+                                      ^^^^^^^^^^^^^):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :name %><br />
+     8:     <%= f.string_field :name, autofocus: true, autocomplete: "name" %>
+     9:   </div>
+    10:   
+    11:   <div class="field">
+  
+app/views/devise/registrations/new.html.erb:8
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-16 07:45:53 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 487)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.5ms | Allocations: 2781)
+  Rendered layouts/_navbar.html.erb (Duration: 3.2ms | Allocations: 560)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 4422)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.0ms | Allocations: 5735)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:46:20 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fa853783310>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.3ms | Allocations: 603)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 79)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2683)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 251)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 3640)
+Completed 200 OK in 605ms (Views: 16.1ms | ActiveRecord: 1.6ms | Allocations: 12529)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:46:44 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fa87f99b5e0>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 457)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2443)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 3355)
+Completed 200 OK in 469ms (Views: 14.2ms | ActiveRecord: 0.9ms | Allocations: 8394)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:47:34 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.0ms | Allocations: 7027)
+
+
+  
+NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::RegistrationsController:0x000000000155b8>
+
+              target.send(@method_name, &block)
+                    ^^^^^):
+  
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+actiontext (7.0.4) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/cookies.rb:696:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:49:10 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fa853af3b08>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 3.0ms | Allocations: 512)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 103)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 2698)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 296)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 5155)
+Completed 200 OK in 553ms (Views: 25.3ms | ActiveRecord: 6.4ms | Allocations: 13941)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:49:25 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fa853a00958>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 457)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2443)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 3355)
+Completed 200 OK in 478ms (Views: 15.8ms | ActiveRecord: 1.4ms | Allocations: 8535)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:49:59 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms | Allocations: 7018)
+
+
+  
+NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::RegistrationsController:0x00000000021e08>
+
+              target.send(@method_name, &block)
+                    ^^^^^):
+  
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+actiontext (7.0.4) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/cookies.rb:696:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:50:18 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms | Allocations: 7005)
+
+
+  
+NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::RegistrationsController:0x00000000028320>
+
+              target.send(@method_name, &block)
+                    ^^^^^):
+  
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+actiontext (7.0.4) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/cookies.rb:696:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2022-11-16 07:51:27 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ije", "email"=>"ijeoma@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ijeoma@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "ije"], ["created_at", "2022-11-16 12:51:27.787495"], ["updated_at", "2022-11-16 12:51:27.787495"], ["email", "ijeoma@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (22.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 516ms (ActiveRecord: 30.1ms | Allocations: 10948)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 07:51:27 -0500
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1155)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3588)
+Completed 200 OK in 61ms (Views: 13.8ms | ActiveRecord: 1.6ms | Allocations: 8131)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 07:54:30 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 146.7ms | Allocations: 9626)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 148.5ms | Allocations: 9924)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 220)
+  Rendered layout layouts/application.html.erb (Duration: 153.0ms | Allocations: 10875)
+Completed 200 OK in 192ms (Views: 154.1ms | ActiveRecord: 6.1ms | Allocations: 16559)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2022-11-16 07:54:56 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Fried RIce", "preparation_time"=>"07:56", "cooking_time"=>"07:58", "description"=>"hello", "public"=>"1"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 0.5ms | Allocations: 10642)
+
+
+  
+NoMethodError (undefined method `desciption' for #<Recipe id: nil, name: "Fried RIce", preparation_time: "2000-01-01 07:56:00.000000000 +0000", cooking_time: "2000-01-01 07:58:00.000000000 +0000", description: "hello", public: true, created_at: nil, updated_at: nil>
+Did you mean?  description
+               description?
+               description=):
+  
+app/controllers/recipes_controller.rb:28:in `block in create'
+app/controllers/recipes_controller.rb:27:in `create'
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-16 07:58:40 -0500
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 8.3ms | Allocations: 2182)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 2506)
+  Rendered layouts/_navbar.html.erb (Duration: 3.5ms | Allocations: 519)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 4106)
+Completed 200 OK in 48ms (Views: 38.9ms | ActiveRecord: 0.5ms | Allocations: 6474)
+
+
