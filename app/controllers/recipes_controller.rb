@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
-
+  # before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :authenticate_user!
   # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.all
@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    # @recipe.user_id = current_user.id
 
     respond_to do |format|
       if @recipe.save
@@ -50,11 +51,16 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.destroy
+    @recipe = find_recipe
 
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def public_recipes
+    @recipes = Recipe.all
   end
 
   private
