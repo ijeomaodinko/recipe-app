@@ -1,57 +1,29 @@
-<div id="<%= dom_id food %>">
-  <p>
-    <strong>Name:</strong>
-    <%= food.name %>
-  </p>
-
-  <p>
-    <strong>Measurement unit:</strong>
-    <%= food.measurement_unit %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
-
-  <p>
-    <strong>Quatity:</strong>
-    <%= food.quatity %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= food.user_id %>
-  </p>
-
+<div class="table_div">
+<table class="table">
+<thead>
+<tr>
+  <th scope="col">Food</th>
+  <th scope="col">Measurement Unit</th>
+  <th scope="col">Unit price</th>
+  <th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<%= @foods.each do |food| %>
+<tr>
+  <td><%= food.name %> </td>
+  <td><%= food.measurement %> </td>
+  <td><%= food.price %> </td>
+  <td>
+  <ul class="link">
+  <li><%= link_to "Show this food", food , class:"Btn btn-primary"%></li>
+  <li><%= link_to "Delete", food, method: :delete,  class: "m-2 btn btn-danger" %></li>
+  </ul>
+  </td>
+</tr>
+</tbody>
+<%end%>
+</table>
 </div>
-
-# <div class="table_div">
-# <table class="table">
-# <thead>
-# <tr>
-#   <th scope="col">Food</th>
-#   <th scope="col">Measurement Unit</th>
-#   <th scope="col">Unit price</th>
-#   <th scope="col">Action</th>
-# </tr>
-# </thead>
-# <tbody>
-# <%= @foods.each do |food| %>
-# <tr>
-#   <td><%= food.name %> </td>
-#   <td><%= food.measurement %> </td>
-#   <td><%= food.price %> </td>
-#   <td>
-#   <ul class="link">
-#   <li><%= link_to "Show this food", food , class:"Btn btn-primary"%></li>
-#   <li><%= link_to "Delete", food, method: :delete,  class: "m-2 btn btn-danger" %></li>
-#   </ul>
-#   </td>
-# </tr>
-# </tbody>
-# <%end%>
-# </table>
-# </div>
 
 
