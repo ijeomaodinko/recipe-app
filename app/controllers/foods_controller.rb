@@ -11,7 +11,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/1 or /foods/1.json
   def show
-    @food = Food.find_by(id: params[:food_id]) 
+    @food = Food.find(params[:id]) 
   end
 
   # GET /foods/new
@@ -54,6 +54,7 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
+    @food = Food.find(params[:id])
     @food.destroy
 
     respond_to do |format|
