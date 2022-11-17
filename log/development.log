@@ -6161,3 +6161,635 @@ Migrating to AddDeviseToUsers (20221116150528)
   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-17 14:10:21 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 118ms (ActiveRecord: 14.6ms | Allocations: 6985)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:10:22 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 18.0ms | Allocations: 845)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 105.4ms | Allocations: 4301)
+  Rendered layouts/_navbar.html.erb (Duration: 9.7ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 535.5ms | Allocations: 44098)
+Completed 200 OK in 634ms (Views: 583.0ms | ActiveRecord: 0.0ms | Allocations: 54357)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-17 14:10:27 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 8.9ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 206)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 22.8ms | Allocations: 2628)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 48.4ms | Allocations: 5819)
+Completed 200 OK in 69ms (Views: 61.3ms | ActiveRecord: 0.0ms | Allocations: 7173)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-17 14:11:01 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"faith", "email"=>"faith@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "faith@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "faith"], ["created_at", "2022-11-17 13:11:02.392709"], ["updated_at", "2022-11-17 13:11:02.392709"], ["email", "faith@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2022-11-17 13:11:02.392967"], ["unconfirmed_email", nil]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 28.7ms | Allocations: 369)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 109.7ms
+Delivered mail 637632e7562bf_1a383da4366c8@DESKTOP-EDG5A05.mail (10338.5ms)
+Date: Thu, 17 Nov 2022 14:11:03 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: faith@gmail.com
+Message-ID: <637632e7562bf_1a383da4366c8@DESKTOP-EDG5A05.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome faith@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ybi_xg9y8_S1V8qZMzUy">Confirm my account</a></p>
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 11564ms (ActiveRecord: 4.9ms | Allocations: 30331)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-17 14:11:13 +0100
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 387)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:11:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 1343)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 50.6ms | Allocations: 4430)
+Completed 200 OK in 62ms (Views: 52.5ms | ActiveRecord: 0.0ms | Allocations: 5151)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:11:31 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"faith@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faith@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 463ms (ActiveRecord: 0.5ms | Allocations: 3195)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:11:31 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.4ms | Allocations: 1348)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 40.0ms | Allocations: 4430)
+Completed 200 OK in 50ms (Views: 45.0ms | ActiveRecord: 0.0ms | Allocations: 5196)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-17 14:11:43 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 132)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1488)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 4465)
+Completed 200 OK in 50ms (Views: 44.7ms | ActiveRecord: 0.0ms | Allocations: 5062)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-17 14:12:06 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"faith", "email"=>"faith@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "faith@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.1ms | Allocations: 568)
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 132)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 2632)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 5609)
+Completed 200 OK in 398ms (Views: 49.7ms | ActiveRecord: 1.1ms | Allocations: 10717)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:12:16 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 185)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1276)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | Allocations: 4253)
+Completed 200 OK in 64ms (Views: 45.3ms | ActiveRecord: 0.0ms | Allocations: 4892)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:12:32 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"faith@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faith@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 348ms (ActiveRecord: 0.6ms | Allocations: 1864)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:12:33 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 185)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1276)
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 4255)
+Completed 200 OK in 46ms (Views: 41.8ms | ActiveRecord: 0.0ms | Allocations: 4916)
+
+
+Started GET "/users/confirmation?confirmation_token=[FILTERED]" for ::1 at 2022-11-17 14:13:36 +0100
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (18.9ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "confirmed_at" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-11-17 13:13:37.041924"], ["confirmed_at", "2022-11-17 13:13:37.041245"], ["id", 1]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 51ms (ActiveRecord: 21.5ms | Allocations: 5413)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-11-17 14:13:37 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 1353)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 63.3ms | Allocations: 4435)
+Completed 200 OK in 75ms (Views: 66.1ms | ActiveRecord: 0.0ms | Allocations: 5141)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-11-17 14:13:57 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"faith@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faith@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 353ms (ActiveRecord: 1.2ms | Allocations: 2563)
+
+
+Started GET "/" for ::1 at 2022-11-17 14:13:57 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1169)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 4384)
+Completed 200 OK in 106ms (Views: 46.7ms | ActiveRecord: 2.1ms | Allocations: 8106)
+
+
+Started GET "/foods" for ::1 at 2022-11-17 14:14:04 +0100
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (7.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  Rendered foods/_food.html.erb (Duration: 12.2ms | Allocations: 5861)
+  Rendered foods/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 6380)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 6463)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 12.7ms | Allocations: 11737)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `food' for #<ActionView::Base:0x00000000010450>
+
+            @virtual_path = "foods/_food";;@output_buffer.safe_append='<div id="'.freeze;@output_buffer.append=( dom_id food );@output_buffer.safe_append='">
+                                                                                                                        ^^^^
+Did you mean?  @food
+               @foods):
+    1: <div id="<%= dom_id food %>">
+    2:   <p>
+    3:     <strong>Name:</strong>
+    4:     <%= food.name %>
+  
+app/views/foods/_food.html.erb:1
+app/views/foods/index.html.erb:11
+Started GET "/foods" for ::1 at 2022-11-17 14:14:09 +0100
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.8ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  Rendered foods/_food.html.erb (Duration: 10.7ms | Allocations: 5331)
+  Rendered foods/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5491)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 5568)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.4ms | Allocations: 8095)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `food' for #<ActionView::Base:0x00000000010748>
+
+            @virtual_path = "foods/_food";;@output_buffer.safe_append='<div id="'.freeze;@output_buffer.append=( dom_id food );@output_buffer.safe_append='">
+                                                                                                                        ^^^^
+Did you mean?  @food
+               @foods):
+    1: <div id="<%= dom_id food %>">
+    2:   <p>
+    3:     <strong>Name:</strong>
+    4:     <%= food.name %>
+  
+app/views/foods/_food.html.erb:1
+app/views/foods/index.html.erb:11
+Started GET "/foods/new" for ::1 at 2022-11-17 14:14:16 +0100
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 243.1ms | Allocations: 12393)
+  Rendered foods/new.html.erb within layouts/application (Duration: 247.0ms | Allocations: 12704)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 278.3ms | Allocations: 15911)
+Completed 200 OK in 324ms (Views: 283.2ms | ActiveRecord: 5.1ms | Allocations: 21074)
+
+
+Started POST "/foods" for ::1 at 2022-11-17 14:14:43 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 24.8ms | Allocations: 5115)
+  Rendered foods/new.html.erb within layouts/application (Duration: 26.1ms | Allocations: 5213)
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | Allocations: 8306)
+Completed 422 Unprocessable Entity in 91ms (Views: 51.5ms | ActiveRecord: 0.7ms | Allocations: 12661)
+
+
+Started POST "/foods" for ::1 at 2022-11-17 14:16:15 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 19.2ms | Allocations: 2134)
+  Rendered foods/new.html.erb within layouts/application (Duration: 22.8ms | Allocations: 2247)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 107.0ms | Allocations: 18343)
+Completed 422 Unprocessable Entity in 216ms (Views: 115.1ms | ActiveRecord: 10.2ms | Allocations: 29830)
+
+
+Started POST "/foods" for ::1 at 2022-11-17 14:16:47 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 4.0ms | Allocations: 2134)
+  Rendered foods/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2247)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 82.5ms | Allocations: 18354)
+Completed 422 Unprocessable Entity in 163ms (Views: 85.2ms | ActiveRecord: 14.4ms | Allocations: 29783)
+
+
+Started POST "/foods" for ::1 at 2022-11-17 14:17:02 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 5.1ms | Allocations: 1905)
+  Rendered foods/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1992)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 39.6ms | Allocations: 4969)
+Completed 422 Unprocessable Entity in 58ms (Views: 41.3ms | ActiveRecord: 0.6ms | Allocations: 7518)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-11-17 14:17:23 +0100
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 481)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:17:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 220)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 1540)
+  Rendered layouts/_navbar.html.erb (Duration: 13.8ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 63.8ms | Allocations: 4731)
+Completed 200 OK in 73ms (Views: 69.6ms | ActiveRecord: 0.0ms | Allocations: 6036)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-17 14:17:34 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"faith@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "faith@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 344ms (ActiveRecord: 1.0ms | Allocations: 2784)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-11-17 14:17:34 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 835)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 4061)
+Completed 200 OK in 66ms (Views: 34.9ms | ActiveRecord: 1.1ms | Allocations: 7263)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2022-11-17 14:17:54 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (Duration: 408.9ms | Allocations: 13317)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 444.4ms | Allocations: 13645)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 464.8ms | Allocations: 16760)
+Completed 200 OK in 521ms (Views: 468.0ms | ActiveRecord: 8.1ms | Allocations: 22811)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2022-11-17 14:18:32 +0100
+Processing by RecipesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"salad", "preparation_time"=>"02:18", "cooking_time"=>"03:19", "description"=>"slice and eat", "public"=>"0", "user_id"=>"2"}, "commit"=>"Create Recipe"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `block in create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:30:in `block in create'
+  [1m[36mRecipe Create (15.6ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "description", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "salad"], ["preparation_time", "02:18:00"], ["cooking_time", "03:19:00"], ["description", "slice and eat"], ["public", false], ["user_id", 1], ["created_at", "2022-11-17 13:18:32.616539"], ["updated_at", "2022-11-17 13:18:32.616539"]]
+  ↳ app/controllers/recipes_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `block in create'
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 356ms (ActiveRecord: 19.5ms | Allocations: 17022)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-11-17 14:18:32 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/_recipe.html.erb (Duration: 11.8ms | Allocations: 420)
+  Rendered recipes/index.html.erb within layouts/application (Duration: 83.1ms | Allocations: 1694)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 107.5ms | Allocations: 4796)
+Completed 200 OK in 120ms (Views: 109.5ms | ActiveRecord: 1.0ms | Allocations: 6616)
+
+
+Started GET "/foods" for 127.0.0.1 at 2022-11-17 14:18:42 +0100
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.7ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  Rendered foods/_food.html.erb (Duration: 18.5ms | Allocations: 5361)
+  Rendered foods/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 5497)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 5575)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.2ms | Allocations: 8225)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `food' for #<ActionView::Base:0x0000000001f770>
+
+            @virtual_path = "foods/_food";;@output_buffer.safe_append='<div id="'.freeze;@output_buffer.append=( dom_id food );@output_buffer.safe_append='">
+                                                                                                                        ^^^^
+Did you mean?  @food
+               @foods):
+    1: <div id="<%= dom_id food %>">
+    2:   <p>
+    3:     <strong>Name:</strong>
+    4:     <%= food.name %>
+  
+app/views/foods/_food.html.erb:1
+app/views/foods/index.html.erb:11
+Started GET "/foods/new" for 127.0.0.1 at 2022-11-17 14:18:47 +0100
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 4.6ms | Allocations: 1586)
+  Rendered foods/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1673)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 4669)
+Completed 200 OK in 35ms (Views: 26.4ms | ActiveRecord: 0.3ms | Allocations: 6339)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2022-11-17 14:22:40 +0100
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 9.8ms | Allocations: 1751)
+  Rendered foods/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 1864)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 100.6ms | Allocations: 17984)
+Completed 200 OK in 180ms (Views: 102.8ms | ActiveRecord: 11.6ms | Allocations: 28149)
+
+
+Started POST "/foods" for 127.0.0.1 at 2022-11-17 14:22:59 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 12.4ms | Allocations: 1915)
+  Rendered foods/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 2005)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 4993)
+Completed 422 Unprocessable Entity in 69ms (Views: 53.6ms | ActiveRecord: 0.5ms | Allocations: 8166)
+
+
+Started POST "/foods" for 127.0.0.1 at 2022-11-17 14:25:37 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :food, :commit. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x0000026e21044a98>, params: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food", "controller"=>"foods", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 7.1ms | Allocations: 2134)
+  Rendered foods/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2247)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 71.8ms | Allocations: 18358)
+Completed 422 Unprocessable Entity in 152ms (Views: 78.9ms | ActiveRecord: 14.2ms | Allocations: 29909)
+
+
+Started POST "/foods" for 127.0.0.1 at 2022-11-17 14:25:56 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :food, :commit. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x0000026e224452e0>, params: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food", "controller"=>"foods", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 11.9ms | Allocations: 1905)
+  Rendered foods/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1992)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 4970)
+Completed 422 Unprocessable Entity in 49ms (Views: 33.3ms | ActiveRecord: 0.6ms | Allocations: 7613)
+
+
+Started POST "/foods" for 127.0.0.1 at 2022-11-17 14:27:05 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"poundo and egusi", "measurement_unit"=>"2", "price"=>"5000", "quatity"=>"5", "user_id"=>"1"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/foods_controller.rb:31:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:31:in `block in create'
+  [1m[36mFood Create (13.0ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "quatity", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "poundo and egusi"], ["measurement_unit", 2], ["price", "5000.0"], ["quatity", 5], ["user_id", 1], ["created_at", "2022-11-17 13:27:10.686819"], ["updated_at", "2022-11-17 13:27:10.686819"]]
+  ↳ app/controllers/foods_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/foods_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/foods/1
+Completed 302 Found in 129ms (ActiveRecord: 25.7ms | Allocations: 14700)
+
+
+Started GET "/foods/1" for 127.0.0.1 at 2022-11-17 14:27:10 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  [1m[36mFood Load (8.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/show.html.erb within layouts/application
+  Rendered foods/_food.html.erb (Duration: 8.7ms | Allocations: 2885)
+  Rendered foods/show.html.erb within layouts/application (Duration: 23.1ms | Allocations: 3308)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 3391)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 10.0ms | Allocations: 7384)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+# '.freeze;@output_buffer.append=  @foods.each do |food| @output_buffer.safe_append='
+                                         ^^^^^):
+    42: # </tr>
+    43: # </thead>
+    44: # <tbody>
+    45: # <%= @foods.each do |food| %>
+    46: # <tr>
+    47: #   <td><%= food.name %> </td>
+    48: #   <td><%= food.measurement %> </td>
+  
+app/views/foods/_food.html.erb:45
+app/views/foods/show.html.erb:3
+Started GET "/foods/1" for 127.0.0.1 at 2022-11-17 14:28:34 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (1.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  [1m[36mCACHE Food Load (0.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/show.html.erb within layouts/application
+  Rendered foods/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1014)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1100)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 15.5ms | Allocations: 11071)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @food %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edit this food", edit_food_path(@food) %> |
+  
+app/views/foods/show.html.erb:3
+Started GET "/foods/1" for 127.0.0.1 at 2022-11-17 14:31:25 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  [1m[36mCACHE Food Load (0.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/show.html.erb within layouts/application
+  Rendered foods/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 1339)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 1.0ms | Allocations: 4987)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @food %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edit this food", edit_food_path(@food) %> |
+  
+app/views/foods/show.html.erb:3
+Started GET "/foods/1" for 127.0.0.1 at 2022-11-17 14:35:20 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  [1m[36mCACHE Food Load (0.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/show.html.erb within layouts/application
+  Rendered foods/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1339)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.7ms | Allocations: 4984)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @food %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edit this food", edit_food_path(@food) %> |
+  
+app/views/foods/show.html.erb:3
+Started GET "/foods/1" for 127.0.0.1 at 2022-11-17 14:35:26 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.7ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:69:in `set_food'
+  [1m[36mCACHE Food Load (0.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/show.html.erb within layouts/application
+  Rendered foods/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1014)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1091)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.1ms | Allocations: 4145)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @food %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edit this food", edit_food_path(@food) %> |
+  
+app/views/foods/show.html.erb:3
