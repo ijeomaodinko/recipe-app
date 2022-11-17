@@ -1,14 +1,15 @@
+<h1 class="text-center mt-4">Here Is All The Food</h1>
 <p style="color: green"><%= notice %></p>
 
 <h1>Foods</h1>
+<div class='text-container'>
+  <%= link_to "Add Food", new_food_path, class: "btn  Add_btn" %>
+</div>
 
 <div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
+ 
+    <%= render @foods %>
+   
 </div>
 
 <%= link_to "New food", new_food_path %>
