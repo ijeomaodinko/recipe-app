@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   devise_for :users
+  resources :inventory_foods
+  resources :inventories
   resources :recipe_foods
   resources :recipes
   resources :foods
