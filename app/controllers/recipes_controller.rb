@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RecipesController < ApplicationController
   # before_action :set_recipe, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -10,7 +8,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @recipe = Recipe.find(params[:id]) 
+    @recipe = Recipe.find(params[:id])
   end
 
   # GET /recipes/new

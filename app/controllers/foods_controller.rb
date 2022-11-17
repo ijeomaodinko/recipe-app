@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class FoodsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_food, only: %i[index show edit update destroy]
@@ -11,7 +9,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/1 or /foods/1.json
   def show
-    @food = Food.find(params[:id]) 
+    @food = Food.find(params[:id])
   end
 
   # GET /foods/new
@@ -30,7 +28,7 @@ class FoodsController < ApplicationController
     respond_to do |format|
       if @food.save
         # format.html { redirect_to food_url(@food), notice: 'Food was successfully created.' }
-         format.html { redirect_to food_url(@food), notice: 'Food was successfully created.' }
+        format.html { redirect_to food_url(@food), notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new, status: :unprocessable_entity }
