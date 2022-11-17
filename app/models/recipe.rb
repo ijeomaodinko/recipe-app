@@ -11,5 +11,4 @@ class Recipe < ApplicationRecord
     end
     total.round(2)
   end
-  
 end

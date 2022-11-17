@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class FoodsController < ApplicationController
   # load_and_authorize_resource
   before_action :set_food, only: %i[show edit update destroy]
@@ -28,7 +26,7 @@ class FoodsController < ApplicationController
     respond_to do |format|
       if @food.save
         # format.html { redirect_to food_url(@food), notice: 'Food was successfully created.' }
-         format.html { redirect_to foods_path, notice: 'Food was successfully created.' }
+        format.html { redirect_to foods_path, notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new, status: :unprocessable_entity }
