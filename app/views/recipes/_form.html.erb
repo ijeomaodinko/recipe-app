@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center"  style="width:29rem; background-color: #198601; border-radius: 0.9rem;">
+      <div class="col-10 col-md-8 col-lg-6">
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
@@ -42,6 +45,9 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Add Recipe", class: "btn btn-danger" %>
   </div>
 <% end %>
+</div>
+</div>
+</div>

@@ -11,23 +11,27 @@
     </div>
   <% end %>
 
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center"  style="width:29rem; background-color: #fd7914; border-radius: 0.9rem;">
+        <div class="col-10 col-md-8 col-lg-6">
+
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :Name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
+    <%= form.label :Measurement_unit, style: "display: block" %>
     <%= form.text_field :measurement_unit %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
+    <%= form.label :Price, style: "display: block" %>
     <%= form.text_field :price %>
   </div>
 
   <div>
-    <%= form.label :quatity, style: "display: block" %>
+    <%= form.label :Quatity, style: "display: block" %>
     <%= form.text_field :quatity %>
   </div>
 
@@ -37,6 +41,9 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Add Food", class: "btn btn-success" %>
   </div>
 <% end %>
+</div>
+</div>
+</div>
