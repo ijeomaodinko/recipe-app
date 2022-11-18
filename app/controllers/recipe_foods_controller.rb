@@ -8,12 +8,15 @@ class RecipeFoodsController < ApplicationController
   end
 
   # GET /recipe_foods/1 or /recipe_foods/1.json
-  def show; end
+  def show;
+    @recipe_food = RecipeFood.find_by(id: params[:recipe_id])
+  end
 
   # GET /recipe_foods/new
   def new
     @recipe_food = RecipeFood.new
-    @recipe = Recipe.find_by(params[:recipe_id])
+    @recipe = Recipe.find_by(id: params[:recipe_id])
+    # @recipe = Recipe.foods.build
   end
 
   # GET /recipe_foods/1/edit
@@ -22,6 +25,7 @@ class RecipeFoodsController < ApplicationController
   # POST /recipe_foods or /recipe_foods.json
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
+    @recipe_food.recipe = @recipe
 
     respond_to do |format|
       if @recipe_food.save
