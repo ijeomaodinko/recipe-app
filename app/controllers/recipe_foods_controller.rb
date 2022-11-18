@@ -4,7 +4,7 @@ class RecipeFoodsController < ApplicationController
   # before_action :set_user
   # GET /recipe_foods or /recipe_foods.json
   def index
-    @recipe_foods = RecipeFood.find_by(@recipe).includes(:food)
+    @recipe_foods = RecipeFood.all
   end
 
   # GET /recipe_foods/1 or /recipe_foods/1.json

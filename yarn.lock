@@ -4,7 +4,7 @@
 
 "@popperjs/core@^2.11.6":
   version "2.11.6"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
 anymatch@~3.1.2:
@@ -22,12 +22,12 @@ binary-extensions@^2.0.0:
 
 bootstrap-icons@^1.10.2:
   version "1.10.2"
-  resolved "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.10.2.tgz"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.10.2.tgz#6a5729e0475e007ed82d752225645e4e6fec48d7"
   integrity sha512-PTPYadRn1AMGr+QTSxe4ZCc+Wzv9DGZxbi3lNse/dajqV31n2/wl/7NX78ZpkvFgRNmH4ogdIQPQmxAfhEV6nA==
 
 bootstrap@^5.2.2:
   version "5.2.2"
-  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.2.tgz"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.2.tgz#834e053eed584a65e244d8aa112a6959f56e27a0"
   integrity sha512-dEtzMTV71n6Fhmbg4fYJzQsw1N29hJKO1js5ackCgIpDcGid2ETMGC6zwSYw09v05Y+oRdQ9loC54zB1La3hHQ==
 
 braces@~3.0.2:
@@ -119,7 +119,7 @@ readdirp@~3.6.0:
 
 sass@^1.56.1:
   version "1.56.1"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.56.1.tgz"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.56.1.tgz#94d3910cd468fd075fa87f5bb17437a0b617d8a7"
   integrity sha512-VpEyKpyBPCxE7qGDtOcdJ6fFbcpOM+Emu7uZLxVrkX8KVU/Dp5UF7WLvzqRuUhB6mqqQt1xffLoG+AndxTZrCQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"

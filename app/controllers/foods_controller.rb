@@ -14,7 +14,8 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
-    @food = Food.new
+    @food = Food.new(params[:id])
+    @user = current_user
   end
 
   # GET /foods/1/edit
