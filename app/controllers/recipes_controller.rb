@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    # @recipe.user_id = current_user.id
 
     respond_to do |format|
       if @recipe.save
@@ -50,9 +50,8 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    # @recipe = find_recipe
+    @recipe = find_recipe
 
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
@@ -60,8 +59,8 @@ class RecipesController < ApplicationController
     end
   end
 
-  def public
-    @recipes = Recipe.where(public: true)
+  def public_recipes
+    @recipes = Recipe.all
   end
 
   private
