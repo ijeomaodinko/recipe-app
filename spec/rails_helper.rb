@@ -59,5 +59,8 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
+# spec/rails_helper.rb
+  require_relative 'support/factory_bot'
+  require_relative 'support/chrome'
   # config.filter_gems_from_backtrace("gem name")
 end
