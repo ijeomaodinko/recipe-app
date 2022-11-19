@@ -24805,3 +24805,20 @@ ActiveModel::UnknownAttributeError (unknown attribute 'food_id' for RecipeFood.
           ^^^^^):
   
 app/controllers/recipe_foods_controller.rb:34:in `create'
+Started GET "/" for 127.0.0.1 at 2022-11-19 14:16:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 72ms (ActiveRecord: 0.0ms | Allocations: 2926)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-19 14:16:06 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 11.8ms | Allocations: 845)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 104.4ms | Allocations: 4331)
+  Rendered layouts/_navbar.html.erb (Duration: 9.5ms | Allocations: 624)
+  Rendered layout layouts/application.html.erb (Duration: 5340.2ms | Allocations: 80048)
+Completed 200 OK in 5457ms (Views: 5383.9ms | ActiveRecord: 22.2ms | Allocations: 91426)
+
+
