@@ -10,8 +10,10 @@ AllCops:
 
   DisplayCopNames: true
 
+
 Layout/EndOfLine:
   Enabled: False
+
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
