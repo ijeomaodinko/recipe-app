@@ -1,9 +1,22 @@
-<h1>New recipe food</h1>
+<h3 class="h3">Add Ingredients for the Recipe</h3>
 
-<%= render "form", recipe_food: @recipe_food %>
+<div class="w-full max-w-md my-5">
+  <%= form_with url: recipe_recipe_foods_path, class: "form", scope: :recipe_food do |f| %>
 
-<br>
+    <div class="mb-3">
+      <%= f.label :Quantity, class: "form-label" %>
+      <%= f.number_field :quantity, placeholder: 0, required: true, class: "form-control" %>
+    </div>
 
-<div>
-  <%= link_to "Back to recipe foods", new_recipe_food_path %>
+    <div class="mb-3">
+      <%= f.label :Food, class: "form-label" %>
+        <%= f.select :food_id, options_for_select(@food_items), {}, { :class => 'form-select mb-2' } %>
+    </div>
+    <br>
+
+    <div>
+      <%= f.submit "Add Ingredients", class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
 </div>

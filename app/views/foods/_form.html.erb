@@ -1,49 +1,27 @@
-<%= form_with(model: food) do |form| %>
-  <% if food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
-      <ul>
-        <% food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with model: @food, class: "form", scope: :foods do |f| %>
+
+    <div class="mb-3">
+    <%= f.label :Name, class: "form-label" %>
+    <%= f.text_field :name, placeholder: "Add Name of Food", required: true, class: "form-control" %>
     </div>
+
+    <div class="mb-3">
+    <%= f.label :Measurement_Unit, class: "form-label" %>
+    <%= f.text_field :measurement_unit, placeholder: "Enter Measurement Unit", required: true, class: "form-control" %>
+    </div>
+    
+    <div class="mb-3">
+    <%= f.label :Unit_Price, class: "form-label" %>
+    <%= f.text_field :price, placeholder: "Unit Price", required: true, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+    <%= f.label :Quantity, class: "form-label" %>
+    <%= f.text_field :quatity, placeholder: "Quantity", required: true, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Add Food", class: "btn btn-primary" %>
   <% end %>
-
-  <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center"  style="width:29rem; background-color: #fd7914; border-radius: 0.9rem;">
-        <div class="col-10 col-md-8 col-lg-6">
-
-  <div>
-    <%= form.label :Name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :Measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
-  </div>
-
-  <div>
-    <%= form.label :Price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :Quatity, style: "display: block" %>
-    <%= form.text_field :quatity %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit "Add Food", class: "btn btn-success" %>
-  </div>
-<% end %>
 </div>
-</div>
-</div>
+  

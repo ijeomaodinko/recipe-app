@@ -1,5 +1,6 @@
 <div class="border border-5">
-<div id="<%= dom_id food %>">
+<div>
+<% @foods.each do |food|  %>
   <p>
     <strong>Name:</strong>
     <%= food.name %>
@@ -24,7 +25,7 @@
     <strong>User:</strong>
     <%= food.user_id %>
   </p>
-
+<%end%>
 </div>
 
 
