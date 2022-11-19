@@ -1,0 +1,32 @@
+<div class="my-3 float-right">
+  <%= link_to "Add Food", new_food_path, class: "btn btn-primary" %>
+</div>
+
+<div class="my-2">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each_with_index do |food, index| %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td><%= food.quatity %></td>
+          <td>
+            <%= button_to "Delete", food_path(food.id), method: :delete, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

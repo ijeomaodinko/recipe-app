@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @recipe %>
+
+<div>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <%= link_to "Back to recipes", recipes_path %>
+
+  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <%= link_to "Generate", shopping_list_index_path %>
+  <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe) %>
+</div>
+
+<%# generate should navigate to shopping_list index page
+add ingredients should navigate to recipe_food_new
+recipe_food create action in the recipe food controller should redirect to recipe view show page %>
