@@ -10,7 +10,7 @@
 
     <div class="mb-3">
       <%= f.label :Food, class: "form-label" %>
-        <%= f.select :food_id, options_for_select(@food_items), {}, { :class => 'form-select mb-2' } %>
+        <%= f.collection_select :food_id, @foods, :id, :name, class: "btn btn-secondary" %>
     </div>
     <br>
 

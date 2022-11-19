@@ -2,7 +2,7 @@ class PublicRecipesController < ApplicationController
   def index
     @recipes = Recipe.where(public: true)
   end
-  
+
   def destroy
     @recipe = Recipe.where(public: true).find(params[:id])
     @recipe.destroy
