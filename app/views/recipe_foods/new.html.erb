@@ -1,22 +1,20 @@
 <h3 class="h3">Add Ingredients for the Recipe</h3>
 
 <div class="w-full max-w-md my-5">
-  <%= form_with url: recipe_recipe_foods_path, class: "form", scope: :recipe_food do |f| %>
-
+<%= form_with model: @recipe_food, url: recipe_recipe_foods_path(@recipe), class: "form" do |f| %>
     <div class="mb-3">
       <%= f.label :Quantity, class: "form-label" %>
       <%= f.number_field :quantity, placeholder: 0, required: true, class: "form-control" %>
     </div>
 
     <div class="mb-3">
-      <%= f.label :Food, class: "form-label" %>
-        <%= f.collection_select :food_id, @foods, :id, :name, class: "btn btn-secondary" %>
+    <%= f.collection_select :food_id, @foods, :id, :name, { prompt: 'Select a Food' }, class: "btn btn-secondary" %>
     </div>
+
     <br>
 
     <div>
       <%= f.submit "Add Ingredients", class: "btn btn-primary" %>
     </div>
-
   <% end %>
 </div>

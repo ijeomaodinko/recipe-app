@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-danger">
-  <div class="container-fluid">
-  <a class="navbar-brand" href="#"> <h1 style="color:#fff;  font-size: 4.5rem">Recipe App 🍀</h1> </a>
+<nav class="navbar">
+  <a class="navbar-brand" href="#"> <h1 style="color:#fff;  font-size: 4.5rem">Recipes</h1> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div>
+    <div class="bardiv" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -31,5 +31,4 @@
           <% end %>
         </ul>
       </div>
-    </div>
   </nav>

@@ -5,14 +5,19 @@ class FoodsController < ApplicationController
     @cuser = current_user
   end
 
-  def show; end
+  def show
+    @foods = Food.all
+  end
 
   def new
+    @foods = Food.all 
     @food = Food.new
   end
 
   def create
-    @food = current_user.foods.new(food_data)
+    @food = Food.all
+    # @food = Food.new(food_params)
+    @food = current_user.foods.new(food_params)
 
     if @food.save
       redirect_to foods_path
@@ -29,7 +34,7 @@ class FoodsController < ApplicationController
 
   private
 
-  def food_data
-    params.require(:foods).permit(:name, :measurement_unit, :price, :quatity)
+  def food_params
+    params.require(:foods).permit(:name, :measurement_unit, :price, :quantity)
   end
 end

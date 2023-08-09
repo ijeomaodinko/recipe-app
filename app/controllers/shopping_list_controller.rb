@@ -1,18 +1,21 @@
 class ShoppingListController < ApplicationController
   def index
     @user = current_user
-    @foods = @user.foods.all
-    @recipes = @user.recipes.all
     @list = []
-    @recipes.each do |recipe|
-      recipe.recipe_foods.includes([:food]).all.each do |item|
-        difference = item.quantity - item.food.quantity
-        @list.push([item.food.name, difference, item.food.price * difference]) if difference.positive?
-      end
-    end
     @total_amount = 0
-    @list.each do |item|
-      @total_amount += item[2]
+
+    @user.recipes.each do |recipe|
+      recipe.recipe_foods.includes(:food).each do |item|
+        puts "Recipe Food: #{item.inspect}"
+        difference = item.quantity - item.food.quantity
+        if difference.positive?
+          @list.push([item.food.name, difference, item.food.price * difference])
+          @total_amount += item.food.price * difference
+        end
+        puts "@list: #{@list.inspect}"
+        puts "@total_amount: #{@total_amount}"
+      end
+      puts "@list: #{@list.inspect}"
     end
   end
 end
