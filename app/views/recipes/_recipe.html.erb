@@ -3,7 +3,7 @@
     <strong>Name:</strong>
     <%= recipe.name %>
   </p>
-
+  <div class="itime">
   <p>
     <strong>Preparation time:</strong>
     <%= recipe.preparation_time %>
@@ -13,7 +13,8 @@
     <strong>Cooking time:</strong>
     <%= recipe.cooking_time %>
   </p>
-
+  </div>
+ <div class="descri">
   <p>
     <strong>Description:</strong>
     <%= recipe.description %>
@@ -23,10 +24,16 @@
     <strong>Public:</strong>
     <%= recipe.public %>
   </p>
+  </div>
 
+  <div  class="username">
   <p>
   <strong>User:</strong>
   <%= recipe.user_id %>
   </p>
 
+  <p>
+  <%= recipe.user.name %>
+  </p>
+  </div>
 </div>

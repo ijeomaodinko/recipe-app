@@ -1,9 +1,11 @@
+<div  class=form-container>
 <h1>New recipe</h1>
 
 <%= render "form", recipe: @recipe %>
-
+ 
 <br>
 
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="link-containers">
+  <%= link_to "Back to recipes", recipes_path , style: "border: 1px solid #e7720b; padding: 10px; border-radius: 7px; color: #000; text-decoration: none; " %>
+</div>
 </div>

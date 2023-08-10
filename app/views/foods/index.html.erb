@@ -1,5 +1,5 @@
-<div class="my-3 float-right">
-  <%= link_to "Add Food", new_food_path, class: "btn btn-primary" %>
+<div class="my-3 float-right" style="background-color: #e7720b; width: 150px; border-radius: 8px; padding-left: 29px">
+  <%= link_to "Add Food", new_food_path, class: "btn", style: "margin-left: 2px;" %>
 </div>
 
 <div class="my-2">
@@ -23,7 +23,7 @@
           <td><%= food.price %></td>
           <td><%= food.quantity %></td>
           <td>
-            <%= button_to "Delete", food_path(food.id), method: :delete, class: "btn btn-danger" %>
+            <%= button_to "Delete", food_path(food.id), method: :delete, class: "btn", style: "border: 1px solid #e7720b; width: 150px; border-radius: 8px; padding-left: 29px margin-left: 2px;" %>
           </td>
         </tr>
       <% end %>

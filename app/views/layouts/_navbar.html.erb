@@ -1,9 +1,10 @@
 <nav class="navbar">
-<div>
+<div class="bar-e">
 <h1  class="navbar-brand" style="color:#fff;  font-size: 4.5rem">Recipes</h1> 
+<%= image_tag 'logo.png', alt: 'recipe', class: "imgbar" %>
     </div>
     <div class="bardiv" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0  ulbar">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'Foods', foods_path, class: "nav-link"%>
@@ -13,18 +14,18 @@
           </li>
         <% end %>
         <li class="nav-item">
-          <%= link_to 'Public Recipes', public_recipes_path, class: "nav-link"%>
+          <%= link_to 'Public Recipes', public_recipes_path, class: "nav-link"%> 
         </li>
         
       </ul>
-      <ul>
+      <ul class="logoutu">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %>
-            <li class="nav-item">Logged in as <strong><%= current_user.email %></strong>
+          <li class="nav-item">Logged in as <strong><%= current_user.email %></strong>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'%></li>
           <% else %>
-            <li class="nav-item"><%= link_to "Sign up", new_user_session_path, class: 'navbar-link' %>  |
+          <%= link_to "Sign up", new_registration_path(resource_name), class: 'navbar-link' %>    |
               <%= link_to "Sign in", new_user_session_path, class: 'navbar-link' %></li>
           <% end %>
         </ul>

@@ -1,14 +1,15 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="recipei">
 <%= render @recipe %>
+</div>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="links-show">
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe), style: "border: 1px solid #e7720b; width: 190px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;" %>
+  <%= link_to "Back to recipes", recipes_path, style: "border: 1px solid #e7720b; width: 190px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;"%>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-  <%= link_to "Generate", shopping_list_index_path %>
-  <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe) %>
+  <%= button_to "Destroy this recipe", @recipe, method: :delete, style: "border: 1px solid #e7720b; width: 190px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;"%>
+  <%= link_to "Generate", shopping_list_index_path, style: "border: 1px solid #e7720b; width: 190px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;"%>
+  <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe), style: "border: 1px solid #e7720b; width: 190px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;" %>
 </div>
 
 <%# generate should navigate to shopping_list index page

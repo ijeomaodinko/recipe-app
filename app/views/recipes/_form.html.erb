@@ -11,41 +11,41 @@
     </div>
   <% end %>
 
-  <div class="container h-100">
-  <div class="row h-100 justify-content-center align-items-center"  style="width:29rem; background-color: #198601; border-radius: 0.9rem;">
-      <div class="col-10 col-md-8 col-lg-6">
   <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="form">
+      <div class="">
+  <div class="field">
+    <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.time_field :preparation_time %>
+  <div class="field">
+    <%= form.label :preparation_time %>
+    <%= form.time_field :preparation_time, style: "border: 1px solid #e7720b; padding: 5px; border-radius: 4px; width: 99%;" %>
   </div>
 
-  <div>
-    <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.time_field :cooking_time %>
+  <div class="field">
+    <%= form.label :cooking_time %>
+    <%= form.time_field :cooking_time, style: "border: 1px solid #e7720b; padding: 5px; border-radius: 4px; width: 99%;" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, style: "border: 1px solid #e7720b; padding: 5px; border-radius: 4px; width: 99%;" %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :public, style: "display: block" %>
     <%= form.check_box :public %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :user_id, style: "display: block" %>
     <%= form.text_field :user_id %>
   </div>
 
-  <div>
-    <%= form.submit "Add Recipe", class: "btn btn-danger" %>
+  <div class="actions">
+    <%= form.submit "Add Recipe", class: "btn btn-success" %>
   </div>
 <% end %>
 </div>

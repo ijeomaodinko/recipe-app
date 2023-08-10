@@ -18,6 +18,11 @@ body {
     margin-top: -0.6rem;
   }
 
+  .bardiv .ulbar{
+    display: flex;
+    flex-direction: row;
+  }
+
   .container-fluid {
     display: flex;
     flex-direction: row;
@@ -27,14 +32,25 @@ body {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    margin-top: 1rem;
     list-style: none;
+    margin-top: -51.9rem;
+    margin-left: 29rem
   }
-  .navbar
-  
+
+  .bar-e {
+    display: flex;
+    flex-direction: row;
+    width: 29%;
+  }
+
+  .imgbar {
+    width: 100%;
+    height: 5.9rem;
+  }
+    
   .navbar-brand {
     color: #fff;
-    font-size: 1rem;
+    font-size: small;
     margin: 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     list-style: none;
@@ -159,7 +175,8 @@ body {
 /* Input fields */
 .field input[type="text"],
 .field input[type="email"],
-.field input[type="password"] {
+.field input[type="password"],
+.field input[type="quantity"]{
   width: 99%;
   padding: 10px;
   border: 1px solid #e7b03e;
@@ -184,7 +201,7 @@ body {
 
 .actions input[type="submit"] {
   background-color: #e7720b;
-  width: 10%;
+  width: 60%;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -238,7 +255,59 @@ body {
   margin-left: 1.9rem;
 }
 
-  
+.custom-btn {
+  background-color: #e7720b;
+  border-color: #e7720b;
+  width: 150px; /* Adjust width as needed */
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.custom-btn:hover {
+  background-color: #e7b03e;
+  border-color: #e7b03e;
+}
+
+.recipe {
+  background-color: #faf1e8;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+.recipei {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+.recipe h4 {
+  text-align: center;
+}
+
+p strong {
+  color: #e7720b;
+}
+
+.itime, .descri {
+  margin-top: 10px;
+  border-top: 1px solid #e7720b;
+  padding-top: 10px;
+}
+
+.username {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.links-show {
+  display: flex;
+  flex-direction: row;
+}
   @media (max-width: 600px) {
     .navbar {
       background-color: #e7720b;
@@ -248,7 +317,7 @@ body {
       gap: 2px;
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
       list-style: none;
-      height: 9rem;
+      height: 12rem;
       margin-top: -0.6rem;
     }
   
@@ -256,21 +325,47 @@ body {
       display: flex;
       flex-direction: row;
     }
-  
+   .imgbar { 
+    width: 80%;
+    height: 4rem;
+    margin-top: 1rem;
+   }
+
+   .bar-e {
+    margin-left: -1rem;
+    padding-right: 0;
+    width: 19%;
+
+   }
     .bardiv {
       display: flex;
-      flex-direction: row;
-      margin-top: 0.1rem;
+      flex-direction: column;
+      margin-top: 1rem;
       list-style: none;
-      margin-left: -1.99rem;
+      margin-left: 9rem;
+      gap: 0;
     }
-  
+    .bardiv .ulbar{
+      display: flex;
+      flex-direction: row;
+      margin-left: -14rem;
+      margin-top: 6rem;
+    }
+
+    .bardiv .logoutu {
+      margin-left: -19rem;
+      height: 1rem;
+      margin-top: -0.7rem;
+      display: flex;
+      flex-direction: row;
+    }
     .navbar-brand {
       color: #fff;
-      font-size: 1rem;
+      font-size: 2rem;
       margin: 0;
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
       list-style: none;
+      margin-left: 0;
     }
   
     .navbar-toggler-icon {
@@ -326,11 +421,11 @@ body {
     /* form*/
       .form-container {
         width: 90%;
-        margin-left: -1rem;
+        margin-left: 1rem;
       }
 
       .form {
-        width: 80%;
+        width: 100%;
       }
     
       /* Adjust font size for smaller screens */
@@ -345,7 +440,7 @@ body {
       }
 
       .actions input[type="submit"] {
-        width: 29%;
+        width: 80%;
       }
 
       .links-container {
@@ -359,9 +454,39 @@ body {
       }
       
       .linkdiv {
-        margin-left: 0;
-        gap: 9px;
+      margin-left: 0;
+      gap: 9px;
+      }
 
+      .links-show {
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+        margin-bottom: 12px;
+      }
+
+      .add-food-btn {
+        background-color: #ffe5b4;
+        color: #e7720b;
+        border: 1px solid #e7720b;
+        border-radius: 8px;
+        padding: 5px 10px;
+        text-decoration: none;
+        margin-left: 10px;
+      }
+    
+      /* Table styles */
+      .table {
+        width: 70%;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+    
+      .table th,
+      .table td {
+        border: 1px solid #e7720b;
+        padding: 8px;
+        text-align: center;
       }
   }
   

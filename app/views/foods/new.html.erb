@@ -1,27 +1,29 @@
-<div class="w-full max-w-md">
+<div class="form-container">
   <h3 class="h3">Add New Food</h3>
   <%= form_with model: @food, class: "form", scope: :foods do |f| %>
 
-    <div class="mb-3">
-      <%= f.label :Name, "Food", class: "form-label" %>
-      <%= f.text_field :name, placeholder: "Food", required: true, class: "form-control" %>
+    <div class="field">
+      <%= f.label :name, "Food", class: "form-label" %>
+      <%= f.text_field :name, placeholder: "Food", required: true, class: "form-input" %>
     </div>
 
-    <div class="mb-3">
+    <div class="field">
       <%= f.label :measurement_unit, class: "form-label" %>
-      <%= f.text_field :measurement_unit, placeholder: "Enter Measurement Unit", required: true, class: "form-control" %>
+      <%= f.text_field :measurement_unit, placeholder: "Enter Measurement Unit", required: true, class: "form-input" %>
     </div>
     
-    <div class="mb-3">
+    <div class="field">
       <%= f.label :price, class: "form-label" %>
-      <%= f.text_field :price, placeholder: "Unit Price", required: true, class: "form-control" %>
+      <%= f.text_field :price, placeholder: "Unit Price", required: true, class: "form-input" %>
     </div>
 
-    <div class="mb-3">
+    <div class="field">
       <%= f.label :quantity, class: "form-label" %>
-      <%= f.number_field :quantity, placeholder: "Quantity", required: true, class: "form-control" %>
+      <%= f.number_field :quantity, placeholder: "Quantity", required: true, style: "border: 1px solid #e7720b; padding: 5px; border-radius: 4px; width: 99%;"%>
     </div>
-
-    <%= f.submit "Add Food", class: "btn btn-primary" %>
+    
+    <div class="actions">
+      <%= f.submit "Add Food", class: "btn btn-success" %>
+    </div>
   <% end %>
 </div>
