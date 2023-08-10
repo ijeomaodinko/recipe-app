@@ -1,7 +1,6 @@
-<div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center"  style="width:29rem; background-color: #e3f2fd; border-radius: 0.9rem;">
-        <div class="col-10 col-md-8 col-lg-6">
-<h2>Log in</h2>
+    <div class="form-container ">
+    <h2>Log in</h2>
+    <div class="form">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -26,7 +25,7 @@
   </div>
 <% end %>
 </div>
-</div>
-</div>
-
+<div class="linkdiv">
 <%= render "devise/shared/links" %>
+</div>
+</div>
