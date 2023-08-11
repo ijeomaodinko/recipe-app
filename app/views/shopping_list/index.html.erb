@@ -1,31 +1,26 @@
 <div class="text-center">
-  <h1>Shopping List</h1>
-</div>
-<div class="d-flex justify-content-between m-5">
-  <div>
-    <h5>Amount of food items to buy: <%= @list.length %></h5>
-    <h5 class="fw-bold">Total price: <%= @total_amount %></h5>
-  </div>
-  <div>
-    <h5>Recipe</h5>
-  </div>
+  <h1>Shopping List for All Recipes</h1>
 </div>
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="table-dark">
     <tr>
-      <th>Name</th>
+      <th>Recipe</th>
+      <th>Food</th>
       <th>Quantity</th>
       <th>Price</th>
     </tr>
   </thead>
   <tbody>
-    <% @list.each do |item| %>
-      <tr>
-        <td><%= item[0] %></td>
-        <td><%= item[1] %></td>
-        <td><%= item[2] %></td>
-      </tr>
+    <% @user_recipes.each do |recipe| %>
+      <% recipe.recipe_foods.each do |recipe_food| %>
+        <tr>
+          <td><%= recipe.name %></td>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td><%= recipe_food.food.price %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
