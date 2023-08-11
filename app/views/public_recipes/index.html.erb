@@ -18,7 +18,9 @@
           ><br />
           
           <%= button_to 'Remove',
-           public_recipes_path(recipe), method: :delete, class: "btn", style: "border: 1px solid #e7720b; width: 109px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;" %> 
+             public_recipe_path(recipe), method: :delete,
+             class: "btn", style: "border: 1px solid #e7720b; width: 109px; border-radius: 8px; padding: 10px 20px; text-decoration: none; color: #000; margin-left: 9px; display: inline-block; text-align: center;",
+             data: { confirm: 'Are you sure you want to delete this recipe?' } %>
         </div>
       </div>
     </li>
