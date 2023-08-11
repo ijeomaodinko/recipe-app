@@ -5,7 +5,6 @@ body {
   background-color: #ffe5b4;
 }
 
-/* Custom Navbar Styling */
 .navbar {
     background-color: #e7720b;
     border-bottom: 2px solid #e7b03e;
@@ -94,7 +93,6 @@ body {
     color: #afaeab;
   }
   
-  /* Dropdown Menu */
   .dropdown-menu {
     background-color: #e7720b;
     border: 1px solid #e7b03e;
@@ -108,7 +106,6 @@ body {
     background-color: #efce77;
   }
   
-  /* Logged in user info */
   .navbar-user {
     color: #fff;
   }
@@ -117,7 +114,6 @@ body {
     font-weight: bold;
   }
   
-  /* Logout button */
   .navbar-logout {
     color: #fff;
     border: 1px solid #e7b03e;
@@ -131,7 +127,6 @@ body {
     color: #e7720b;
   }
 
-  /* Form container */
 .form-container {
   background-color: #ffe5b4;
   padding: 30px;
@@ -152,14 +147,12 @@ body {
   margin: 20px auto;
 }
 
-/* Form header */
 .form-container h2 {
   color: #000;
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-/* Form fields */
 .field {
   margin-bottom: 20px;
 }
@@ -172,7 +165,6 @@ body {
   color: #7a7979;
 }
 
-/* Input fields */
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="password"],
@@ -185,7 +177,6 @@ body {
   margin-right: 66px;
 }
 
-/* Remember Me */
 .field .remember-label {
   display: flex;
   align-items: center;
@@ -193,7 +184,6 @@ body {
   color: #969696;
 }
 
-/* Submit button */
 .actions {
   margin-top: 15px;
   text-align: center;
@@ -215,7 +205,6 @@ body {
   background-color: #ffe5b4;
 }
 
-/* Links container */
 .links-container {
   background-color: #fff;
   border: 1px solid #e7720b;
@@ -227,7 +216,6 @@ body {
   width: 80%;
 }
 
-/* Links */
 .links-container a {
   display: inline-block;
   background-color: #e7720b;
@@ -404,7 +392,6 @@ p strong {
       color: #afaeab;
     }
   
-    /* Dropdown Menu */
     .dropdown-menu {
       background-color: #e7720b;
       border: 1px solid #e7b03e;
@@ -418,7 +405,6 @@ p strong {
       background-color: #efce77;
     }
 
-    /* form*/
       .form-container {
         width: 90%;
         margin-left: 1rem;
@@ -428,7 +414,6 @@ p strong {
         width: 100%;
       }
     
-      /* Adjust font size for smaller screens */
       .form-container h2,
       .field label,
       .field input[type="text"],
@@ -448,7 +433,6 @@ p strong {
         padding: 12px;
       }
       
-      /* Adjust font size for smaller screens */
       .links-container a {
         font-size: 12px;
       }
