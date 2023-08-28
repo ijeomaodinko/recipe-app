@@ -13,7 +13,11 @@ services:
     envVars:
       - key: postgres://recipe_app_3rnw_user:dJvNgY0lsYP7pt1aNGJcxqTomDKedA6U@dpg-cjm4j9ocfp5c73efqgcg-a/recipe_app_3rnw
         fromDatabase:
-          name: postgres
+          name: recipe-app
           property: connectionString
-      - key: RAILS_MASTER_KEY
+      - key: RECIPE_APP_DATABASE_PASSWORD
         sync: false
+databases:
+  - name: recipe-app
+    databaseName: recipe_app_3rnw
+    user: recipe_app_3rnw_user
