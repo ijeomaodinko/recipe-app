@@ -1,1 +1,19 @@
+databases:
+  - name: postgres
+    ipAllowList: []
+    databaseName: recipe_app
+    user: recipe_app
 
+services:
+  - type: web
+    name: recipe_app
+    env: ruby
+    buildCommand: "./render-build.sh"
+    startCommand: "bundle exec rails s"
+    envVars:
+      - key: postgres://recipe_app_3rnw_user:dJvNgY0lsYP7pt1aNGJcxqTomDKedA6U@dpg-cjm4j9ocfp5c73efqgcg-a/recipe_app_3rnw
+        fromDatabase:
+          name: postgres
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
