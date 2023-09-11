@@ -2,7 +2,8 @@
 set -e
 
 # Remove carriage return characters (if any)
-dos2unix ./render-build.sh
+sed -i 's/\r//' ./render-build.sh
+
 
 bundle install
 bundle exec rails assets:precompile
