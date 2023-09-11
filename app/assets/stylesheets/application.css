@@ -67,7 +67,6 @@ body {
   
   .navbar-nav .nav-link {
     color: #fff;
-    font-weight: bold;
     text-decoration: none; 
     list-style: none;
   }
@@ -111,7 +110,6 @@ body {
   }
   
   .navbar-user strong {
-    font-weight: bold;
   }
   
   .navbar-logout {
@@ -368,7 +366,6 @@ p strong {
   
     .navbar-nav .nav-link {
       color: #fff;
-      font-weight: bold;
       text-decoration: none;
     }
     

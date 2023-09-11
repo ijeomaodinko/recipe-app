@@ -45020,3 +45020,57 @@ Completed 200 OK in 138ms (Views: 102.0ms | ActiveRecord: 12.0ms | Allocations: 
   [1m[36mActiveRecord::InternalMetadata Load (18.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-09-11 18:48:52 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+Completed 401 Unauthorized in 199ms (ActiveRecord: 0.0ms | Allocations: 2622)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-09-11 18:48:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 92.8ms | Allocations: 717)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 376.0ms | Allocations: 3964)
+  Rendered layouts/_navbar.html.erb (Duration: 181.4ms | Allocations: 1180)
+  Rendered layout layouts/application.html.erb (Duration: 9453.6ms | Allocations: 52174)
+Completed 200 OK in 9815ms (Views: 9658.0ms | ActiveRecord: 8.2ms | Allocations: 63304)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-09-11 18:49:31 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ijelike@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (23.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ijelike@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 695ms (ActiveRecord: 27.9ms | Allocations: 14251)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ijelike@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 18.9ms | Allocations: 717)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 202.7ms | Allocations: 4248)
+  Rendered layouts/_navbar.html.erb (Duration: 201.3ms | Allocations: 1137)
+  Rendered layout layouts/application.html.erb (Duration: 3211.1ms | Allocations: 44134)
+Completed 200 OK in 3751ms (Views: 3437.4ms | ActiveRecord: 0.0ms | Allocations: 46836)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-09-11 18:49:46 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ijelike@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ijelike@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 279ms (ActiveRecord: 0.3ms | Allocations: 1804)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ijelike@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 153)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1330)
+  Rendered layouts/_navbar.html.erb (Duration: 47.8ms | Allocations: 682)
+  Rendered layout layouts/application.html.erb (Duration: 226.2ms | Allocations: 4488)
+Completed 200 OK in 546ms (Views: 229.9ms | ActiveRecord: 0.0ms | Allocations: 5075)
+
+
