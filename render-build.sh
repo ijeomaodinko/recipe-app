@@ -1,5 +1,8 @@
 # exit on error
-set -o errexit
+set -e
+
+# Remove carriage return characters (if any)
+dos2unix ./render-build.sh
 
 bundle install
 bundle exec rails assets:precompile
